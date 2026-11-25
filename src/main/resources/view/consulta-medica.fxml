@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<VBox prefWidth="1056.0" spacing="24.0" styleClass="area-trabajo" stylesheets="@../css/vetplus.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="algo.vetplusapp.ctrl.ConsultaMedicaController">
+   <padding>
+      <Insets bottom="32.0" left="32.0" right="32.0" top="32.0" />
+   </padding>
+   <children>
+      <HBox alignment="CENTER_LEFT" spacing="20.0">
+         <children>
+            <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label styleClass="titulo-28" text="Una atención, todo el contexto" />
+                  <Label fx:id="lblDatosConsulta" styleClass="texto-13" text="Sin atención seleccionada" />
+               </children>
+            </VBox>
+            <Label fx:id="lblEstadoAtencion" managed="false" styleClass="chip" text="Atención en curso" visible="false" />
+         </children>
+      </HBox>
+      <HBox alignment="TOP_LEFT" spacing="24.0">
+         <children>
+            <VBox maxWidth="304.0" minWidth="304.0" prefWidth="304.0" spacing="20.0">
+               <children>
+                  <VBox spacing="16.0" styleClass="tarjeta">
+                     <children>
+                        <Label styleClass="titulo-17" text="Paciente" />
+                        <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="fila-mascota">
+                           <children>
+                              <StackPane maxHeight="42.0" maxWidth="42.0" minHeight="42.0" minWidth="42.0" prefHeight="42.0" prefWidth="42.0" styleClass="avatar-mascota">
+                                 <children>
+                                    <StackPane maxHeight="20.0" maxWidth="20.0" minHeight="20.0" minWidth="20.0" prefHeight="20.0" prefWidth="20.0">
+                                       <children>
+                                          <SVGPath content="M9 4a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M16 8a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M18 16a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z" scaleX="0.8333" scaleY="0.8333" styleClass="icon-stroke" />
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </StackPane>
+                              <VBox spacing="3.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label fx:id="lblPacienteNombre" styleClass="titulo-14" text="Sin paciente" />
+                                    <Label fx:id="lblPacienteDetalle" maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-11" wrapText="true" />
+                                 </children>
+                              </VBox>
+                              <StackPane maxHeight="16.0" maxWidth="16.0" minHeight="16.0" minWidth="16.0" prefHeight="16.0" prefWidth="16.0">
+                                 <children>
+                                    <SVGPath content="M9 18l6-6-6-6" scaleX="0.6667" scaleY="0.6667" styleClass="icon-stroke" />
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                        <VBox>
+                           <children>
+                              <Label fx:id="lblPacientePeso" styleClass="texto-12-oscuro" text="Peso: —" />
+                              <Label fx:id="lblPacientePropietario" styleClass="texto-12-oscuro" text="Propietario: —" />
+                           </children>
+                        </VBox>
+                        <Label fx:id="lblPacienteTelefono" styleClass="texto-12" text="Tel. —" />
+                        <Button fx:id="btnAbrirExpedienteCompleto" maxWidth="-Infinity" mnemonicParsing="false" styleClass="boton-secundario" text="Abrir expediente completo" />
+                        <HBox fx:id="cajaAvisoPaciente" alignment="TOP_LEFT" managed="false" spacing="10.0" styleClass="caja-aviso" visible="false">
+                           <children>
+                              <StackPane maxHeight="18.0" maxWidth="18.0" minHeight="18.0" minWidth="18.0" prefHeight="18.0" prefWidth="18.0">
+                                 <children>
+                                    <SVGPath content="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0 M12 8v4 M12 16h.01" scaleX="0.75" scaleY="0.75" styleClass="icon-stroke, icon-naranja" />
+                                 </children>
+                              </StackPane>
+                              <Label fx:id="lblAvisoPaciente" maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-12" wrapText="true" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox spacing="16.0" styleClass="tarjeta">
+                     <children>
+                        <Label styleClass="titulo-17" text="Antecedentes relevantes" />
+                        <VBox fx:id="contenedorAntecedentes" spacing="16.0">
+                           <children>
+                              <Label fx:id="lblSinAntecedentes" styleClass="texto-12" text="Sin antecedentes registrados." />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox spacing="16.0" styleClass="caja-crema">
+                     <children>
+                        <Label styleClass="titulo-17" text="Siguiente en tu agenda" />
+                        <Label fx:id="lblSinSiguiente" styleClass="texto-12" text="No hay más citas en tu agenda hoy." />
+                        <VBox fx:id="contenedorSiguiente" managed="false" spacing="16.0" visible="false">
+                           <children>
+                              <Label fx:id="lblSiguienteTitulo" styleClass="titulo-14" />
+                              <Label fx:id="lblSiguienteDetalle" maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-12-oscuro" wrapText="true" />
+                           </children>
+                        </VBox>
+                        <Button fx:id="btnVerMiAgenda" maxWidth="-Infinity" mnemonicParsing="false" styleClass="boton-secundario" text="Ver mi agenda" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox spacing="16.0" styleClass="tarjeta">
+                     <children>
+                        <Label styleClass="titulo-17" text="Nota de consulta" />
+                        <Label fx:id="lblMedicoNota" styleClass="texto-12" text="—" />
+                        <VBox spacing="7.0">
+                           <children>
+                              <Label styleClass="campo-etiqueta" text="Motivo de consulta" />
+                              <TextArea fx:id="txtMotivoConsulta" minHeight="64.0" prefHeight="64.0" promptText="Describe el motivo de la consulta" styleClass="campo-area" wrapText="true" />
+                           </children>
+                        </VBox>
+                        <HBox spacing="16.0">
+                           <children>
+                              <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="7.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="Peso" />
+                                    <TextField fx:id="txtPesoConsulta" minHeight="44.0" prefHeight="44.0" promptText="Peso (kg)" styleClass="campo-texto" />
+                                 </children>
+                              </VBox>
+                              <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="7.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="Temperatura" />
+                                    <TextField fx:id="txtTemperatura" minHeight="44.0" prefHeight="44.0" promptText="Temperatura (°C)" styleClass="campo-texto" />
+                                 </children>
+                              </VBox>
+                              <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="7.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="Frecuencia cardiaca" />
+                                    <TextField fx:id="txtFrecuenciaCardiaca" minHeight="44.0" prefHeight="44.0" promptText="Latidos por minuto" styleClass="campo-texto" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <VBox spacing="7.0">
+                           <children>
+                              <Label styleClass="campo-etiqueta" text="Exploración y diagnóstico" />
+                              <TextArea fx:id="txtExploracionDiagnostico" minHeight="86.0" prefHeight="86.0" promptText="Describe la exploración y el diagnóstico" styleClass="campo-area" wrapText="true" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="7.0">
+                           <children>
+                              <Label styleClass="campo-etiqueta" text="Tratamiento e indicaciones" />
+                              <TextArea fx:id="txtTratamiento" minHeight="86.0" prefHeight="86.0" promptText="Escribe el tratamiento y las indicaciones" styleClass="campo-area" wrapText="true" />
+                           </children>
+                        </VBox>
+                        <HBox spacing="16.0">
+                           <children>
+                              <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="7.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="Próxima revisión" />
+                                    <HBox spacing="8.0">
+                                       <children>
+                                          <DatePicker fx:id="dtpProximaRevision" maxWidth="1.7976931348623157E308" promptText="Fecha" styleClass="campo-combo" HBox.hgrow="ALWAYS" />
+                                          <ComboBox fx:id="cmbHoraRevision" prefWidth="100.0" promptText="Hora" styleClass="campo-combo" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="7.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="Servicio registrado" />
+                                    <ComboBox fx:id="cmbServicioRegistrado" maxWidth="1.7976931348623157E308" promptText="Selecciona el servicio" styleClass="campo-combo" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_LEFT" spacing="10.0" styleClass="caja-aviso">
+                           <children>
+                              <StackPane maxHeight="18.0" maxWidth="18.0" minHeight="18.0" minWidth="18.0" prefHeight="18.0" prefWidth="18.0">
+                                 <children>
+                                    <SVGPath content="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0 M12 16v-4 M12 8h.01" scaleX="0.75" scaleY="0.75" styleClass="icon-stroke" />
+                                 </children>
+                              </StackPane>
+                              <Label fx:id="lblAvisoFinalizar" maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-12" text="Al finalizar, la nota se añadirá al historial de la mascota y el servicio se enviará a la cuenta de su propietario." wrapText="true" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                        <HBox spacing="12.0">
+                           <children>
+                              <Button fx:id="btnGuardarBorrador" mnemonicParsing="false" styleClass="boton-secundario" text="Guardar borrador" />
+                              <Button fx:id="btnFinalizarAtencion" graphicTextGap="8.0" mnemonicParsing="false" styleClass="boton-naranja" text="Finalizar y registrar en historial">
+                                 <graphic>
+                                    <StackPane maxHeight="16.0" maxWidth="16.0" minHeight="16.0" minWidth="16.0" prefHeight="16.0" prefWidth="16.0">
+                                       <children>
+                                          <SVGPath content="M20 6L9 17l-5-5" scaleX="0.6667" scaleY="0.6667" styleClass="icon-stroke, icon-oscuro" />
+                                       </children>
+                                    </StackPane>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="4.0">
+                           <children>
+                              <Label fx:id="lblUltimoGuardado" styleClass="texto-10" text="Aún sin guardar ·" />
+                              <Label styleClass="texto-10" text="Solo el equipo médico puede editar esta nota." />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT">
+         <padding>
+            <Insets top="8.0" />
+         </padding>
+         <children>
+            <Label styleClass="texto-10" text="VETPLUS · Clínica veterinaria." />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label styleClass="texto-10" text="© 2026 VETPLUS. Todos los derechos reservados." />
+         </children>
+      </HBox>
+   </children>
+</VBox>

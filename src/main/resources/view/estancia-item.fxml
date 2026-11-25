@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefWidth="280.0" spacing="7.0" styleClass="estancia-item, plantilla" stylesheets="@../css/vetplus.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER_LEFT">
+         <children>
+            <Label fx:id="lblNombreMascota" styleClass="titulo-14" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label styleClass="chip" text="En estancia" />
+         </children>
+      </HBox>
+      <Label fx:id="lblDetalleEstancia" styleClass="texto-11" />
+      <Label fx:id="lblDuenoEstancia" styleClass="texto-12-oscuro" />
+      <HBox alignment="CENTER_LEFT" spacing="4.0">
+         <children>
+            <Label fx:id="lblTelefonoEstancia" styleClass="texto-12" />
+            <Hyperlink fx:id="lnkContactar" styleClass="enlace" text="Contactar" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+
+<VBox prefWidth="1056.0" spacing="24.0" styleClass="area-trabajo" stylesheets="@../css/vetplus.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="algo.vetplusapp.ctrl.ExpedienteMascotaController">
+   <padding>
+      <Insets bottom="32.0" left="32.0" right="32.0" top="32.0" />
+   </padding>
+   <fx:define>
+      <ToggleGroup fx:id="grupoPestanas" />
+   </fx:define>
+   <children>
+      <HBox alignment="CENTER_LEFT">
+         <children>
+            <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="lblTituloExpediente" styleClass="titulo-28" text="Expediente de mascota" />
+                  <Label fx:id="lblRutaExpediente" styleClass="texto-13" text="Clientes y mascotas" />
+               </children>
+            </VBox>
+            <Button fx:id="btnEliminarMascota" mnemonicParsing="false" style="-fx-text-fill: #B3261E;" styleClass="boton-secundario" text="Eliminar mascota" />
+            <Button fx:id="btnEditarMascota" graphicTextGap="8.0" mnemonicParsing="false" styleClass="boton-secundario" text="Editar datos de mascota">
+               <graphic>
+                  <StackPane maxHeight="16.0" maxWidth="16.0" minHeight="16.0" minWidth="16.0" prefHeight="16.0" prefWidth="16.0">
+                     <children>
+                        <SVGPath content="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-0.5 0.83l-1.321 4.352a0.5 0.5 0 0 0 0.623 0.622l4.353-1.32a2 2 0 0 0 0.83-0.497z M15 5l4 4" scaleX="0.6667" scaleY="0.6667" styleClass="icon-stroke, icon-oscuro" />
+                     </children>
+                  </StackPane>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_LEFT" spacing="24.0">
+         <children>
+            <VBox maxWidth="304.0" minWidth="304.0" prefWidth="304.0" spacing="20.0">
+               <children>
+                  <VBox spacing="16.0" styleClass="tarjeta">
+                     <children>
+                        <StackPane maxHeight="170.0" maxWidth="260.0" minHeight="170.0" minWidth="260.0" prefHeight="170.0" prefWidth="260.0" styleClass="marco-retrato">
+                           <children>
+                              <ImageView fx:id="imgRetrato" fitHeight="170.0" fitWidth="260.0" pickOnBounds="true">
+                                 <clip>
+                                    <Rectangle arcHeight="16.0" arcWidth="16.0" height="170.0" width="260.0" />
+                                 </clip>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label fx:id="lblNombreMascota" styleClass="titulo-24" />
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Label fx:id="lblEstadoMascota" managed="false" styleClass="chip" visible="false" />
+                           </children>
+                        </HBox>
+                        <Label fx:id="lblRazaEspecieSexo" styleClass="texto-12" />
+                        <HBox spacing="18.0">
+                           <children>
+                              <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="7.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="Edad" />
+                                    <TextField fx:id="txtEdad" minHeight="44.0" prefHeight="44.0" promptText="Edad" styleClass="campo-texto" />
+                                 </children>
+                              </VBox>
+                              <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="7.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="Peso" />
+                                    <TextField fx:id="txtPeso" minHeight="44.0" prefHeight="44.0" promptText="Peso (kg)" styleClass="campo-texto" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <VBox>
+                           <children>
+                              <Label fx:id="lblNacimiento" styleClass="texto-12-oscuro" text="Nacimiento: —" />
+                              <Label fx:id="lblEsterilizada" styleClass="texto-12-oscuro" text="Esterilizada: —" />
+                              <Label fx:id="lblMicrochip" styleClass="texto-12-oscuro" text="Microchip: —" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox spacing="16.0" styleClass="tarjeta">
+                     <children>
+                        <Label styleClass="titulo-17" text="Propietaria y emergencia" />
+                        <Label fx:id="lblPropietariaNombre" styleClass="titulo-14" text="—" />
+                        <HBox alignment="CENTER_LEFT" spacing="4.0">
+                           <children>
+                              <Label fx:id="lblPropietariaTel" styleClass="texto-12" text="Tel. —" />
+                              <Hyperlink fx:id="lnkLlamar" styleClass="enlace" text="Llamar" />
+                           </children>
+                        </HBox>
+                        <Label fx:id="lblPropietariaCorreo" styleClass="texto-11-oscuro" />
+                        <Label fx:id="lblPropietariaDireccion" styleClass="texto-11" />
+                        <Label styleClass="texto-12-negrita" text="Contacto alternativo" />
+                        <Label fx:id="lblContactoAlterno" styleClass="texto-12-oscuro" text="—" />
+                        <Button fx:id="btnVerMascotasPropietaria" maxWidth="-Infinity" mnemonicParsing="false" styleClass="boton-secundario" text="Ver mascotas del propietario" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="20.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox fx:id="cajaAntecedente" alignment="TOP_LEFT" managed="false" spacing="10.0" styleClass="caja-aviso" visible="false">
+                     <children>
+                        <StackPane maxHeight="18.0" maxWidth="18.0" minHeight="18.0" minWidth="18.0" prefHeight="18.0" prefWidth="18.0">
+                           <children>
+                              <SVGPath content="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0 M12 8v4 M12 16h.01" scaleX="0.75" scaleY="0.75" styleClass="icon-stroke, icon-naranja" />
+                           </children>
+                        </StackPane>
+                        <Label fx:id="lblAntecedente" maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-12" wrapText="true" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox spacing="22.0" styleClass="pestanas-barra">
+                     <children>
+                        <ToggleButton fx:id="tglHistorial" mnemonicParsing="false" selected="true" styleClass="pestana" text="Historial clínico" toggleGroup="$grupoPestanas" />
+                        <ToggleButton fx:id="tglVacunas" mnemonicParsing="false" styleClass="pestana" text="Vacunas y prevención" toggleGroup="$grupoPestanas" />
+                        <ToggleButton fx:id="tglDocumentos" mnemonicParsing="false" styleClass="pestana" text="Documentos" toggleGroup="$grupoPestanas" />
+                     </children>
+                  </HBox>
+                  <VBox spacing="16.0" styleClass="tarjeta">
+                     <children>
+                        <Label styleClass="titulo-17" text="Historial de atención" />
+                        <Label fx:id="lblTotalAtenciones" styleClass="texto-12" text="Registro cronológico · 0 atenciones en total" />
+                        <VBox fx:id="contenedorHistorial" spacing="16.0">
+                           <children>
+                              <Label fx:id="lblSinHistorial" styleClass="texto-12" text="Aún no hay atenciones registradas." />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox spacing="16.0" styleClass="tarjeta">
+                     <children>
+                        <Label styleClass="titulo-17" text="Vacunas y próximos cuidados" />
+                        <TableView fx:id="tblVacunas" fixedCellSize="58.0" minHeight="211.0" prefHeight="211.0" styleClass="tabla-vet">
+                           <columns>
+                              <TableColumn fx:id="colCuidado" prefWidth="180.0" text="Cuidado" />
+                              <TableColumn fx:id="colUltimaAplicacion" prefWidth="180.0" text="Última aplicación" />
+                              <TableColumn fx:id="colProximaFecha" prefWidth="150.0" text="Próxima fecha" />
+                              <TableColumn fx:id="colEstadoCuidado" prefWidth="110.0" text="Estado" />
+                           </columns>
+                           <placeholder>
+                              <Label styleClass="texto-12" text="Sin vacunas ni cuidados registrados." />
+                           </placeholder>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT">
+         <padding>
+            <Insets top="8.0" />
+         </padding>
+         <children>
+            <Label styleClass="texto-10" text="VETPLUS · Clínica veterinaria." />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label styleClass="texto-10" text="© 2026 VETPLUS. Todos los derechos reservados." />
+         </children>
+      </HBox>
+   </children>
+</VBox>

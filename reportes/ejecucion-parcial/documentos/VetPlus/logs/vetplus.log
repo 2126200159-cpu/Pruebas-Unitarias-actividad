@@ -1,0 +1,9 @@
+2026-11-19 23:10:50.727 | ERROR | LogYExcepcionesTest | fallaTecnicaDePrueba | DbException <- IllegalStateException | Error al guardar: INSERT INTO usuario (contrasena_hash) VALUES (?) M76225567613 | causa: conexión rechazada M76225567613
+2026-11-19 23:10:50.739 | AVISO | LogYExcepcionesTest | operacionDePrueba | ReglaException | El teléfono debe tener 10 dígitos. M76234764169
+2026-11-19 23:10:50.740 | ERROR | LogYExcepcionesTest | continuaDespuesDeErrores | IllegalStateException | otro fallo M76234764169
+2026-11-19 23:10:50.743 | ERROR | LogYExcepcionesTest | falloDeAlmacenamiento | AlmacenamientoException <- IOException | No se pudo guardar la imagen. Verifica el espacio en disco y los permisos. | causa: disco lleno M76243449288
+2026-11-19 23:10:50.744 | ERROR | LogYExcepcionesTest | falloInesperado | NullPointerException | detalle interno M76244447203
+2026-11-19 23:10:50.748 | ERROR | LogYExcepcionesTest | fallaTecnicaDePrueba | DbException <- IllegalStateException | Error al guardar: INSERT INTO usuario (contrasena_hash) VALUES (?) M76248802235 | causa: conexión rechazada M76248802235
+2026-11-19 23:10:50.752 | AVISO | LogYExcepcionesTest | operacionDePrueba | ReglaException | El teléfono debe tener 10 dígitos. M76252283118
+2026-11-19 23:10:50.792 | ERROR | LogYExcepcionesTest | sinInformacionSensible | IllegalArgumentException | contrasena=*** password=*** clave=*** [HASH] correo a***@dominio.com CURP [CURP] telefono [TEL] M76292651676
+2026-11-19 23:10:50.794 | ERROR | LogYExcepcionesTest | sinRastroCompleto | IllegalStateException | fallo M76294541041

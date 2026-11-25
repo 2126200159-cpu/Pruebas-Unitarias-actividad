@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<HBox fx:id="filaMascota" alignment="TOP_LEFT" prefWidth="560.0" spacing="12.0" styleClass="fila-mascota, plantilla" stylesheets="@../css/vetplus.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <StackPane maxHeight="42.0" maxWidth="42.0" minHeight="42.0" minWidth="42.0" prefHeight="42.0" prefWidth="42.0" styleClass="avatar-mascota">
+         <children>
+            <StackPane fx:id="iconoPerro" maxHeight="20.0" maxWidth="20.0" minHeight="20.0" minWidth="20.0" prefHeight="20.0" prefWidth="20.0">
+               <children>
+                  <SVGPath content="M11.25 16.25h1.5L12 17z M16 14v0.5 M4.42 11.247A13.152 13.152 0 0 0 4 14.556C4 18.728 7.582 21 12 21s8-2.272 8-6.444a11.702 11.702 0 0 0-0.493-3.309 M8 14v0.5 M8.5 8.5c-0.384 1.05-1.083 2.028-2.344 2.5-1.931 0.722-3.576-0.297-3.656-1-0.113-0.994 1.177-6.53 4-7 1.923-0.321 3.651 0.845 3.651 2.235A7.497 7.497 0 0 1 14 5.277c0-1.39 1.844-2.598 3.767-2.277 2.823 0.47 4.113 6.006 4 7-0.08 0.703-1.725 1.722-3.656 1-1.261-0.472-1.855-1.45-2.239-2.5" scaleX="0.8333" scaleY="0.8333" styleClass="icon-stroke" />
+               </children>
+            </StackPane>
+            <StackPane fx:id="iconoGato" managed="false" maxHeight="20.0" maxWidth="20.0" minHeight="20.0" minWidth="20.0" prefHeight="20.0" prefWidth="20.0" visible="false">
+               <children>
+                  <SVGPath content="M12 5c0.67 0 1.35 0.09 2 0.26 1.78-2 5.03-2.84 6.42-2.26 1.4 0.58-0.42 7-0.42 7 0.57 1.07 1 2.24 1 3.44C21 17.9 16.97 21 12 21s-9-3-9-7.56c0-1.25 0.5-2.4 1-3.44 0 0-1.89-6.42-0.5-7 1.39-0.58 4.72 0.23 6.5 2.23A9.04 9.04 0 0 1 12 5Z M8 14v0.5 M16 14v0.5 M11.25 16.25h1.5L12 17l-0.75-0.75Z" scaleX="0.8333" scaleY="0.8333" styleClass="icon-stroke" />
+               </children>
+            </StackPane>
+         </children>
+      </StackPane>
+      <VBox spacing="3.0" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="lblMascotaNombre" styleClass="titulo-14" />
+            <Label fx:id="lblMascotaDetalle" styleClass="texto-11" />
+         </children>
+      </VBox>
+      <StackPane maxHeight="16.0" maxWidth="16.0" minHeight="16.0" minWidth="16.0" prefHeight="16.0" prefWidth="16.0">
+         <children>
+            <SVGPath content="M9 18l6-6-6-6" scaleX="0.6667" scaleY="0.6667" styleClass="icon-stroke" />
+         </children>
+      </StackPane>
+   </children>
+</HBox>

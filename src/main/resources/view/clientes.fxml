@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<VBox prefWidth="1056.0" spacing="24.0" styleClass="area-trabajo" stylesheets="@../css/vetplus.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="algo.vetplusapp.ctrl.ClientesController">
+   <padding>
+      <Insets bottom="32.0" left="32.0" right="32.0" top="32.0" />
+   </padding>
+   <fx:define>
+      <ToggleGroup fx:id="grupoFiltroClientes" />
+   </fx:define>
+   <children>
+      <HBox alignment="CENTER_LEFT">
+         <children>
+            <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label styleClass="titulo-28" text="Clientes y mascotas" />
+                  <Label styleClass="texto-13" text="Cada familia, conectada con el cuidado de sus mascotas." />
+               </children>
+            </VBox>
+            <Button fx:id="btnRegistrarPropietario" graphicTextGap="8.0" mnemonicParsing="false" styleClass="boton-naranja" text="Registrar propietario">
+               <graphic>
+                  <StackPane maxHeight="16.0" maxWidth="16.0" minHeight="16.0" minWidth="16.0" prefHeight="16.0" prefWidth="16.0">
+                     <children>
+                        <SVGPath content="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M5 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0 M19 8v6 M22 11h-6" scaleX="0.6667" scaleY="0.6667" styleClass="icon-stroke, icon-oscuro" />
+                     </children>
+                  </StackPane>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_LEFT" spacing="24.0">
+         <children>
+            <VBox maxWidth="568.0" minWidth="568.0" prefWidth="568.0" spacing="20.0">
+               <children>
+                  <VBox spacing="16.0" styleClass="tarjeta">
+                     <children>
+                        <VBox spacing="7.0">
+                           <children>
+                              <Label styleClass="campo-etiqueta" text="Buscar cliente o mascota" />
+                              <TextField fx:id="txtBuscar" minHeight="44.0" prefHeight="44.0" promptText="⌕  Nombre, teléfono o correo" styleClass="campo-texto" />
+                           </children>
+                        </VBox>
+                        <HBox spacing="10.0">
+                           <children>
+                              <ToggleButton fx:id="tglTodos" mnemonicParsing="false" selected="true" styleClass="chip-filtro" text="Todos · 0" toggleGroup="$grupoFiltroClientes" />
+                              <ToggleButton fx:id="tglActivos" mnemonicParsing="false" styleClass="chip-filtro" text="Activos · 0" toggleGroup="$grupoFiltroClientes" />
+                           </children>
+                        </HBox>
+                        <TableView fx:id="tblClientes" fixedCellSize="58.0" minHeight="443.0" prefHeight="443.0" styleClass="tabla-vet">
+                           <columns>
+                              <TableColumn fx:id="colPropietario" prefWidth="190.0" text="Propietario" />
+                              <TableColumn fx:id="colContacto" prefWidth="140.0" text="Contacto" />
+                              <TableColumn fx:id="colMascotas" prefWidth="194.0" text="Mascotas" />
+                           </columns>
+                           <placeholder>
+                              <Label styleClass="texto-12" text="Aún no hay clientes registrados." />
+                           </placeholder>
+                        </TableView>
+                        <HBox alignment="CENTER_LEFT" spacing="12.0">
+                           <children>
+                              <Label fx:id="lblPaginacion" styleClass="texto-11" text="0 clientes" />
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Hyperlink fx:id="lnkAnterior" styleClass="enlace" text="← Anterior" />
+                              <Hyperlink fx:id="lnkSiguiente" styleClass="enlace" text="Siguiente →" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox spacing="16.0" styleClass="caja-crema">
+                     <children>
+                        <Label styleClass="titulo-17" text="Un solo expediente por familia" />
+                        <Label maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-12-oscuro" text="Desde una ficha puedes consultar todas las mascotas, sus citas y las cuentas de su propietario." wrapText="true" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="20.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox spacing="16.0" styleClass="tarjeta">
+                     <children>
+                        <HBox alignment="TOP_LEFT">
+                           <children>
+                              <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label fx:id="lblNombreCliente" styleClass="titulo-21" text="Selecciona un cliente" />
+                                    <Label fx:id="lblClienteDesde" styleClass="texto-11" />
+                                 </children>
+                              </VBox>
+                              <Label fx:id="lblEstadoCliente" managed="false" styleClass="chip" visible="false" />
+                           </children>
+                        </HBox>
+                        <Button fx:id="btnEliminarPropietario" maxWidth="-Infinity" mnemonicParsing="false" style="-fx-text-fill: #B3261E;" styleClass="boton-secundario" text="Eliminar cliente y mascotas" />
+                        <Button fx:id="btnEditarPropietario" graphicTextGap="8.0" maxWidth="-Infinity" mnemonicParsing="false" styleClass="boton-secundario" text="Editar propietario">
+                           <graphic>
+                              <StackPane maxHeight="16.0" maxWidth="16.0" minHeight="16.0" minWidth="16.0" prefHeight="16.0" prefWidth="16.0">
+                                 <children>
+                                    <SVGPath content="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-0.5 0.83l-1.321 4.352a0.5 0.5 0 0 0 0.623 0.622l4.353-1.32a2 2 0 0 0 0.83-0.497z M15 5l4 4" scaleX="0.6667" scaleY="0.6667" styleClass="icon-stroke, icon-oscuro" />
+                                 </children>
+                              </StackPane>
+                           </graphic>
+                        </Button>
+                        <HBox spacing="18.0">
+                           <children>
+                              <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="7.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="Teléfono" />
+                                    <TextField fx:id="txtTelefono" minHeight="44.0" prefHeight="44.0" promptText="55 0000 0000" styleClass="campo-texto" />
+                                 </children>
+                              </VBox>
+                              <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="7.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="Correo" />
+                                    <TextField fx:id="txtCorreo" minHeight="44.0" prefHeight="44.0" promptText="correo@ejemplo.com" styleClass="campo-texto" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <VBox spacing="7.0">
+                           <children>
+                              <Label styleClass="campo-etiqueta" text="Dirección" />
+                              <TextField fx:id="txtDireccion" minHeight="44.0" prefHeight="44.0" promptText="Calle, número, colonia, ciudad y código postal" styleClass="campo-texto" />
+                           </children>
+                        </VBox>
+                        <HBox spacing="18.0">
+                           <children>
+                              <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="7.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="CURP" />
+                                    <TextField fx:id="txtCurp" minHeight="44.0" prefHeight="44.0" promptText="18 caracteres" styleClass="campo-texto" />
+                                 </children>
+                              </VBox>
+                              <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="7.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="Registro" />
+                                    <TextField fx:id="txtRegistro" editable="false" minHeight="44.0" prefHeight="44.0" promptText="Se asigna al registrar" styleClass="campo-texto" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox spacing="16.0" styleClass="tarjeta">
+                     <children>
+                        <Label fx:id="lblTituloMascotas" styleClass="titulo-17" text="Sus mascotas · 0" />
+                        <VBox fx:id="contenedorMascotas" spacing="16.0">
+                           <children>
+                              <Label fx:id="lblSinMascotas" styleClass="texto-12" text="Este cliente aún no tiene mascotas registradas." />
+                           </children>
+                        </VBox>
+                        <HBox spacing="12.0">
+                           <children>
+                              <Button fx:id="btnRegistrarMascota" graphicTextGap="8.0" mnemonicParsing="false" styleClass="boton-naranja" text="Registrar mascota">
+                                 <graphic>
+                                    <StackPane maxHeight="16.0" maxWidth="16.0" minHeight="16.0" minWidth="16.0" prefHeight="16.0" prefWidth="16.0">
+                                       <children>
+                                          <SVGPath content="M5 12h14 M12 5v14" scaleX="0.6667" scaleY="0.6667" styleClass="icon-stroke, icon-oscuro" />
+                                       </children>
+                                    </StackPane>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btnVerCuenta" mnemonicParsing="false" styleClass="boton-secundario" text="Ver cuenta" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT">
+         <padding>
+            <Insets top="8.0" />
+         </padding>
+         <children>
+            <Label styleClass="texto-10" text="VETPLUS · Clínica veterinaria." />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label styleClass="texto-10" text="© 2026 VETPLUS. Todos los derechos reservados." />
+         </children>
+      </HBox>
+   </children>
+</VBox>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<VBox prefWidth="1056.0" spacing="24.0" styleClass="area-trabajo" stylesheets="@../css/vetplus.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="algo.vetplusapp.ctrl.ReportesController">
+   <padding>
+      <Insets bottom="32.0" left="32.0" right="32.0" top="32.0" />
+   </padding>
+   <fx:define>
+      <ToggleGroup fx:id="grupoReportes" />
+   </fx:define>
+   <children>
+      <HBox alignment="CENTER_LEFT">
+         <children>
+            <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label styleClass="titulo-28" text="La información que cuida tu negocio" />
+                  <Label fx:id="lblDatosAl" styleClass="texto-13" text="Reportes de atención, ingresos y familias" />
+               </children>
+            </VBox>
+            <Button fx:id="btnExportarReporte" graphicTextGap="8.0" mnemonicParsing="false" styleClass="boton-secundario" text="Exportar reporte">
+               <graphic>
+                  <StackPane maxHeight="16.0" maxWidth="16.0" minHeight="16.0" minWidth="16.0" prefHeight="16.0" prefWidth="16.0">
+                     <children>
+                        <SVGPath content="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4 M7 10l5 5 5-5 M12 15V3" scaleX="0.6667" scaleY="0.6667" styleClass="icon-stroke, icon-oscuro" />
+                     </children>
+                  </StackPane>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <HBox spacing="10.0">
+         <children>
+            <ToggleButton fx:id="tglPacientesDia" maxWidth="1.7976931348623157E308" minHeight="54.0" mnemonicParsing="false" prefWidth="100.0" selected="true" styleClass="reporte-opcion" text="Pacientes del día" toggleGroup="$grupoReportes" HBox.hgrow="ALWAYS" />
+            <ToggleButton fx:id="tglPacientesServicio" maxWidth="1.7976931348623157E308" minHeight="54.0" mnemonicParsing="false" prefWidth="100.0" styleClass="reporte-opcion" text="Pacientes por servicio" toggleGroup="$grupoReportes" HBox.hgrow="ALWAYS" />
+            <ToggleButton fx:id="tglContactoCliente" maxWidth="1.7976931348623157E308" minHeight="54.0" mnemonicParsing="false" prefWidth="100.0" styleClass="reporte-opcion" text="Contacto del cliente" toggleGroup="$grupoReportes" HBox.hgrow="ALWAYS" />
+            <ToggleButton fx:id="tglMascotasEspecie" maxWidth="1.7976931348623157E308" minHeight="54.0" mnemonicParsing="false" prefWidth="100.0" styleClass="reporte-opcion" text="Mascotas por especie" toggleGroup="$grupoReportes" HBox.hgrow="ALWAYS" />
+            <ToggleButton fx:id="tglClientesDescuento" maxWidth="1.7976931348623157E308" minHeight="54.0" mnemonicParsing="false" prefWidth="100.0" styleClass="reporte-opcion" text="Clientes con descuento" toggleGroup="$grupoReportes" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+      <HBox spacing="16.0">
+         <children>
+            <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="16.0" styleClass="tarjeta" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox alignment="TOP_LEFT">
+                     <children>
+                        <Label styleClass="texto-12" text="Pacientes con cobro" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <StackPane maxHeight="20.0" maxWidth="20.0" minHeight="20.0" minWidth="20.0" prefHeight="20.0" prefWidth="20.0">
+                           <children>
+                              <SVGPath content="M9 4a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M16 8a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M18 16a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z" scaleX="0.8333" scaleY="0.8333" styleClass="icon-stroke" />
+                           </children>
+                        </StackPane>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lblPacientesCobro" styleClass="metrica-valor" text="0" />
+                  <Label fx:id="lblDetallePacientesCobro" styleClass="texto-11" text="Cobros individuales liquidados" />
+               </children>
+            </VBox>
+            <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="16.0" styleClass="tarjeta" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox alignment="TOP_LEFT">
+                     <children>
+                        <Label styleClass="texto-12" text="Total del día" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <StackPane maxHeight="20.0" maxWidth="20.0" minHeight="20.0" minWidth="20.0" prefHeight="20.0" prefWidth="20.0">
+                           <children>
+                              <SVGPath content="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1 M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" scaleX="0.8333" scaleY="0.8333" styleClass="icon-stroke" />
+                           </children>
+                        </StackPane>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lblTotalDia" styleClass="metrica-valor" text="\$0.00" />
+                  <Label fx:id="lblDetalleTotalDia" styleClass="texto-11" text="Pesos mexicanos · neto cobrado" />
+               </children>
+            </VBox>
+            <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="16.0" styleClass="tarjeta" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox alignment="TOP_LEFT">
+                     <children>
+                        <Label styleClass="texto-12" text="Ticket por paciente" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <StackPane maxHeight="20.0" maxWidth="20.0" minHeight="20.0" minWidth="20.0" prefHeight="20.0" prefWidth="20.0">
+                           <children>
+                              <SVGPath content="M12 16v5 M16 14v7 M20 10v11 M22 3L13.354 11.646a0.5 0.5 0 0 1-0.708 0L9.354 8.354a0.5 0.5 0 0 0-0.707 0L2 15 M4 18v3 M8 14v7" scaleX="0.8333" scaleY="0.8333" styleClass="icon-stroke" />
+                           </children>
+                        </StackPane>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lblTicketPaciente" styleClass="metrica-valor" text="\$0.00" />
+                  <Label fx:id="lblDetalleTicket" styleClass="texto-11" text="Total del día entre pacientes con cobro" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <VBox spacing="16.0" styleClass="tarjeta">
+         <children>
+            <Label styleClass="titulo-17" text="Pacientes del día" />
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <Label fx:id="lblFechaReporte" styleClass="texto-12" text="Cobros liquidados ·" />
+                  <Hyperlink fx:id="lnkCambiarFecha" styleClass="enlace" text="Cambiar fecha ▾" />
+               </children>
+            </HBox>
+            <TableView fx:id="tblPacientesDia" fixedCellSize="58.0" minHeight="327.0" prefHeight="327.0" styleClass="tabla-vet">
+               <columns>
+                  <TableColumn fx:id="colRepPaciente" prefWidth="170.0" text="Paciente" />
+                  <TableColumn fx:id="colRepPropietario" prefWidth="190.0" text="Propietario" />
+                  <TableColumn fx:id="colRepServicio" prefWidth="180.0" text="Servicio" />
+                  <TableColumn fx:id="colRepMetodo" prefWidth="190.0" text="Método" />
+                  <TableColumn fx:id="colRepCobro" prefWidth="218.0" text="Cobro individual" />
+               </columns>
+               <placeholder>
+                  <Label styleClass="texto-12" text="No hay cobros registrados en esta fecha." />
+               </placeholder>
+            </TableView>
+            <HBox alignment="CENTER_LEFT" styleClass="caja-total-diario">
+               <children>
+                  <Label fx:id="lblTotalCobradoTitulo" styleClass="texto-14-negrita" text="Total cobrado · 0 pacientes" />
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Label fx:id="lblTotalCobrado" styleClass="total-20" text="\$0.00 MXN" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox alignment="TOP_LEFT" spacing="20.0">
+         <children>
+            <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="16.0" styleClass="tarjeta" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label styleClass="titulo-17" text="Pacientes por servicio" />
+                  <HBox alignment="CENTER_LEFT" spacing="4.0">
+                     <children>
+                        <Label styleClass="texto-12" text="Mismo periodo ·" />
+                        <Hyperlink fx:id="lnkVerReporteServicios" styleClass="enlace" text="Ver reporte →" />
+                     </children>
+                  </HBox>
+                  <VBox fx:id="contenedorServicios" spacing="16.0">
+                     <children>
+                        <Label fx:id="lblSinServicios" styleClass="texto-12" text="Sin cobros en este periodo." />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="16.0" styleClass="tarjeta" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label styleClass="titulo-17" text="Mascotas por especie" />
+                  <HBox alignment="CENTER_LEFT" spacing="4.0">
+                     <children>
+                        <Label styleClass="texto-12" text="Pacientes cobrados hoy ·" />
+                        <Hyperlink fx:id="lnkVerReporteEspecies" styleClass="enlace" text="Ver reporte →" />
+                     </children>
+                  </HBox>
+                  <Label fx:id="lblEspecies" styleClass="metrica-verde" text="Sin datos" />
+                  <ProgressBar fx:id="pbEspecies" maxWidth="1.7976931348623157E308" progress="0.0" styleClass="barra-especie" />
+                  <Label fx:id="lblPorcentajesEspecie" styleClass="texto-12" text="—" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-12-oscuro" text="Consulta el catálogo completo para agrupar todas las mascotas registradas." wrapText="true" />
+               </children>
+            </VBox>
+            <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="16.0" styleClass="tarjeta" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label styleClass="titulo-17" text="Familias y contactos" />
+                  <Hyperlink fx:id="lnkClientesDescuento" styleClass="enlace-negro" text="Clientes con descuento →" />
+                  <VBox>
+                     <children>
+                        <Label fx:id="lblClienteDescuento" styleClass="texto-11" text="Sin clientes con descuento" />
+                        <Label fx:id="lblAhorroDescuento" styleClass="texto-11" />
+                     </children>
+                  </VBox>
+                  <Hyperlink fx:id="lnkContactoCliente" styleClass="enlace-negro" text="Contacto del cliente →" />
+                  <Label fx:id="lblContactoNombre" styleClass="texto-11-oscuro" text="Sin cliente seleccionado" />
+                  <Label fx:id="lblContactoTel" styleClass="texto-12" />
+                  <Label fx:id="lblContactoCorreo" styleClass="texto-11" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT">
+         <padding>
+            <Insets top="8.0" />
+         </padding>
+         <children>
+            <Label styleClass="texto-10" text="VETPLUS · Clínica veterinaria." />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label styleClass="texto-10" text="© 2026 VETPLUS. Todos los derechos reservados." />
+         </children>
+      </HBox>
+   </children>
+</VBox>

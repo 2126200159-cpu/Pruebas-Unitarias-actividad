@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<VBox prefWidth="1056.0" spacing="24.0" styleClass="area-trabajo" stylesheets="@../css/vetplus.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="algo.vetplusapp.ctrl.AgendaController">
+   <padding>
+      <Insets bottom="32.0" left="32.0" right="32.0" top="32.0" />
+   </padding>
+   <fx:define>
+      <ToggleGroup fx:id="grupoVista" />
+      <ToggleGroup fx:id="grupoDias" />
+   </fx:define>
+   <children>
+      <HBox alignment="CENTER_LEFT">
+         <children>
+            <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label styleClass="titulo-28" text="Agenda de la clínica" />
+                  <Label styleClass="texto-13" text="Organiza el día y coordina a tu equipo." />
+               </children>
+            </VBox>
+            <Button fx:id="btnNuevaCita" graphicTextGap="8.0" mnemonicParsing="false" styleClass="boton-naranja" text="Nueva cita">
+               <graphic>
+                  <StackPane maxHeight="16.0" maxWidth="16.0" minHeight="16.0" minWidth="16.0" prefHeight="16.0" prefWidth="16.0">
+                     <children>
+                        <SVGPath content="M5 12h14 M12 5v14" scaleX="0.6667" scaleY="0.6667" styleClass="icon-stroke, icon-oscuro" />
+                     </children>
+                  </StackPane>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_LEFT" spacing="24.0">
+         <children>
+            <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox spacing="16.0" styleClass="tarjeta">
+                     <children>
+                        <HBox alignment="TOP_LEFT">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" spacing="8.0" styleClass="selector-fecha">
+                                 <children>
+                                    <StackPane maxHeight="16.0" maxWidth="16.0" minHeight="16.0" minWidth="16.0" prefHeight="16.0" prefWidth="16.0">
+                                       <children>
+                                          <SVGPath content="M8 2v4 M16 2v4 M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z M3 10h18 M8 14h.01 M12 14h.01 M16 14h.01 M8 18h.01 M12 18h.01 M16 18h.01" scaleX="0.6667" scaleY="0.6667" styleClass="icon-stroke" />
+                                       </children>
+                                    </StackPane>
+                                    <Button fx:id="btnDiaAnterior" mnemonicParsing="false" styleClass="boton-flecha" text="‹" />
+                                    <Label fx:id="lblFechaActual" styleClass="fecha-texto" text="—" />
+                                    <Button fx:id="btnDiaSiguiente" mnemonicParsing="false" styleClass="boton-flecha" text="›" />
+                                 </children>
+                              </HBox>
+                              <Region HBox.hgrow="ALWAYS" />
+                              <HBox alignment="TOP_RIGHT" spacing="8.0">
+                                 <children>
+                                    <ToggleButton fx:id="tglVistaDia" mnemonicParsing="false" selected="true" styleClass="vista-opcion" text="Día">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="grupoVista" />
+                                       </toggleGroup></ToggleButton>
+                                    <ToggleButton fx:id="tglVistaSemana" mnemonicParsing="false" styleClass="vista-opcion" text="Semana" toggleGroup="$grupoVista" />
+                                    <ToggleButton fx:id="tglVistaMes" mnemonicParsing="false" styleClass="vista-opcion" text="Mes" toggleGroup="$grupoVista" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <HBox spacing="8.0">
+                           <children>
+                              <ToggleButton fx:id="tglDia1" contentDisplay="GRAPHIC_ONLY" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="100.0" selected="true" styleClass="dia-boton" HBox.hgrow="ALWAYS">
+                                 <graphic>
+                                    <VBox alignment="CENTER" spacing="5.0">
+                                       <children>
+                                          <Label styleClass="dia-nombre" text="LUN" />
+                                          <Label fx:id="lblNumDia1" styleClass="dia-numero" text="—" />
+                                       </children>
+                                    </VBox>
+                                 </graphic>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="grupoDias" />
+                                 </toggleGroup>
+                              </ToggleButton>
+                              <ToggleButton fx:id="tglDia2" contentDisplay="GRAPHIC_ONLY" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="100.0" styleClass="dia-boton" toggleGroup="$grupoDias" HBox.hgrow="ALWAYS">
+                                 <graphic>
+                                    <VBox alignment="CENTER" spacing="5.0">
+                                       <children>
+                                          <Label styleClass="dia-nombre" text="MAR" />
+                                          <Label fx:id="lblNumDia2" styleClass="dia-numero" text="—" />
+                                       </children>
+                                    </VBox>
+                                 </graphic>
+                              </ToggleButton>
+                              <ToggleButton fx:id="tglDia3" contentDisplay="GRAPHIC_ONLY" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="100.0" styleClass="dia-boton" toggleGroup="$grupoDias" HBox.hgrow="ALWAYS">
+                                 <graphic>
+                                    <VBox alignment="CENTER" spacing="5.0">
+                                       <children>
+                                          <Label styleClass="dia-nombre" text="MIÉ" />
+                                          <Label fx:id="lblNumDia3" styleClass="dia-numero" text="—" />
+                                       </children>
+                                    </VBox>
+                                 </graphic>
+                              </ToggleButton>
+                              <ToggleButton fx:id="tglDia4" contentDisplay="GRAPHIC_ONLY" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="100.0" styleClass="dia-boton" toggleGroup="$grupoDias" HBox.hgrow="ALWAYS">
+                                 <graphic>
+                                    <VBox alignment="CENTER" spacing="5.0">
+                                       <children>
+                                          <Label styleClass="dia-nombre" text="JUE" />
+                                          <Label fx:id="lblNumDia4" styleClass="dia-numero" text="—" />
+                                       </children>
+                                    </VBox>
+                                 </graphic>
+                              </ToggleButton>
+                              <ToggleButton fx:id="tglDia5" contentDisplay="GRAPHIC_ONLY" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="100.0" styleClass="dia-boton" toggleGroup="$grupoDias" HBox.hgrow="ALWAYS">
+                                 <graphic>
+                                    <VBox alignment="CENTER" spacing="5.0">
+                                       <children>
+                                          <Label styleClass="dia-nombre" text="VIE" />
+                                          <Label fx:id="lblNumDia5" styleClass="dia-numero" text="—" />
+                                       </children>
+                                    </VBox>
+                                 </graphic>
+                              </ToggleButton>
+                              <ToggleButton fx:id="tglDia6" contentDisplay="GRAPHIC_ONLY" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="100.0" styleClass="dia-boton" toggleGroup="$grupoDias" HBox.hgrow="ALWAYS">
+                                 <graphic>
+                                    <VBox alignment="CENTER" spacing="5.0">
+                                       <children>
+                                          <Label styleClass="dia-nombre" text="SÁB" />
+                                          <Label fx:id="lblNumDia6" styleClass="dia-numero" text="—" />
+                                       </children>
+                                    </VBox>
+                                 </graphic>
+                              </ToggleButton>
+                           </children>
+                        </HBox>
+                        <HBox spacing="8.0">
+                           <children>
+                              <Button fx:id="btnFiltroProfesional" mnemonicParsing="false" styleClass="chip-boton" text="Todos los profesionales" />
+                              <Button fx:id="btnFiltroServicio" mnemonicParsing="false" styleClass="chip-boton" text="Todos los servicios" />
+                              <Label fx:id="lblTotalCitas" styleClass="chip" text="0 citas" />
+                           </children>
+                        </HBox>
+                        <TableView fx:id="tblAgenda" fixedCellSize="58.0" minHeight="501.0" prefHeight="501.0" styleClass="tabla-vet">
+                           <columns>
+                              <TableColumn fx:id="colHora" prefWidth="108.0" text="Hora" />
+                              <TableColumn fx:id="colPaciente" prefWidth="142.0" text="Paciente / dueño" />
+                              <TableColumn fx:id="colServicio" prefWidth="120.0" text="Servicio" />
+                              <TableColumn fx:id="colProfesional" prefWidth="110.0" text="Profesional" />
+                              <TableColumn fx:id="colEstado" prefWidth="114.0" text="Estado" />
+                           </columns>
+                           <placeholder>
+                              <Label styleClass="texto-12" text="No hay citas programadas para este día." />
+                           </placeholder>
+                        </TableView>
+                        <HBox alignment="CENTER_LEFT" spacing="4.0">
+                           <children>
+                              <Label fx:id="lblCitasMostradas" styleClass="texto-11" text="0 de 0 citas ·" />
+                              <Hyperlink fx:id="lnkMostrarTodas" styleClass="enlace" text="Mostrar todas ↓" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox maxWidth="330.0" minWidth="330.0" prefWidth="330.0">
+               <children>
+                  <VBox spacing="16.0" styleClass="tarjeta">
+                     <children>
+                        <Label styleClass="titulo-17" text="Nueva cita" />
+                        <Label styleClass="texto-12" text="Completa los datos para programar." />
+                        <VBox spacing="7.0">
+                           <children>
+                              <Label styleClass="campo-etiqueta" text="Propietario" />
+                              <ComboBox fx:id="cmbPropietario" maxWidth="1.7976931348623157E308" promptText="Selecciona un propietario" styleClass="campo-combo" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="7.0">
+                           <children>
+                              <Label styleClass="campo-etiqueta" text="Mascota" />
+                              <ComboBox fx:id="cmbMascota" maxWidth="1.7976931348623157E308" promptText="Selecciona una mascota" styleClass="campo-combo" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="7.0">
+                           <children>
+                              <Label styleClass="campo-etiqueta" text="Servicio" />
+                              <ComboBox fx:id="cmbServicio" maxWidth="1.7976931348623157E308" promptText="Selecciona un servicio" styleClass="campo-combo" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="7.0">
+                           <children>
+                              <Label styleClass="campo-etiqueta" text="Profesional" />
+                              <ComboBox fx:id="cmbProfesional" maxWidth="1.7976931348623157E308" promptText="Selecciona un profesional" styleClass="campo-combo" />
+                           </children>
+                        </VBox>
+                        <HBox spacing="12.0">
+                           <children>
+                              <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="7.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="Fecha" />
+                                    <DatePicker fx:id="dtpFecha" maxWidth="1.7976931348623157E308" promptText="Fecha" styleClass="campo-combo" />
+                                 </children>
+                              </VBox>
+                              <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="7.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="Hora" />
+                                    <ComboBox fx:id="cmbHora" maxWidth="1.7976931348623157E308" promptText="Hora" styleClass="campo-combo" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <VBox spacing="7.0">
+                           <children>
+                              <Label styleClass="campo-etiqueta" text="Motivo / notas" />
+                              <TextArea fx:id="txtMotivo" minHeight="86.0" prefHeight="86.0" promptText="Describe el motivo de la cita" styleClass="campo-area" wrapText="true" />
+                           </children>
+                        </VBox>
+                        <HBox fx:id="cajaAvisoHorario" alignment="TOP_LEFT" managed="false" spacing="10.0" styleClass="caja-aviso" visible="false">
+                           <children>
+                              <StackPane maxHeight="18.0" maxWidth="18.0" minHeight="18.0" minWidth="18.0" prefHeight="18.0" prefWidth="18.0">
+                                 <children>
+                                    <SVGPath content="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0 M12 16v-4 M12 8h.01" scaleX="0.75" scaleY="0.75" styleClass="icon-stroke" />
+                                 </children>
+                              </StackPane>
+                              <Label fx:id="lblAvisoHorario" maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-12" wrapText="true" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                        <Button fx:id="btnGuardarCita" graphicTextGap="8.0" maxWidth="-Infinity" mnemonicParsing="false" styleClass="boton-naranja" text="Guardar cita">
+                           <graphic>
+                              <StackPane maxHeight="16.0" maxWidth="16.0" minHeight="16.0" minWidth="16.0" prefHeight="16.0" prefWidth="16.0">
+                                 <children>
+                                    <SVGPath content="M20 6L9 17l-5-5" scaleX="0.6667" scaleY="0.6667" styleClass="icon-stroke, icon-oscuro" />
+                                 </children>
+                              </StackPane>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnCancelarCita" maxWidth="-Infinity" mnemonicParsing="false" styleClass="boton-secundario" text="Cancelar" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT">
+         <padding>
+            <Insets top="8.0" />
+         </padding>
+         <children>
+            <Label styleClass="texto-10" text="VETPLUS · Clínica veterinaria." />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label styleClass="texto-10" text="© 2026 VETPLUS. Todos los derechos reservados." />
+         </children>
+      </HBox>
+   </children>
+</VBox>

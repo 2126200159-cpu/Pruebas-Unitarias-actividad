@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<VBox prefWidth="1056.0" spacing="24.0" styleClass="area-trabajo" stylesheets="@../css/vetplus.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="algo.vetplusapp.ctrl.MisPacientesController">
+   <padding>
+      <Insets bottom="32.0" left="32.0" right="32.0" top="32.0" />
+   </padding>
+   <children>
+      <HBox alignment="CENTER_LEFT" spacing="20.0">
+         <children>
+            <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label styleClass="titulo-28" text="Mis pacientes" />
+                  <Label fx:id="lblSubtituloPacientes" styleClass="texto-13" text="Preferencias y cuidados de los pacientes asignados a ti." />
+               </children>
+            </VBox>
+            <Label fx:id="lblResumenPacientes" styleClass="chip" text="0 pacientes · Hoy" />
+         </children>
+      </HBox>
+      <HBox spacing="16.0">
+         <children>
+            <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="7.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label styleClass="campo-etiqueta" text="Buscar paciente o propietario" />
+                  <TextField fx:id="txtBuscarPaciente" minHeight="44.0" prefHeight="44.0" promptText="Nombre o teléfono…" styleClass="campo-texto" />
+               </children>
+            </VBox>
+            <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="7.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label styleClass="campo-etiqueta" text="Estado del servicio" />
+                  <ComboBox fx:id="cmbEstadoServicio" maxWidth="1.7976931348623157E308" promptText="Todos los estados" styleClass="campo-combo" />
+               </children>
+            </VBox>
+            <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="7.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label styleClass="campo-etiqueta" text="Asignación" />
+                  <ComboBox fx:id="cmbAsignacion" maxWidth="1.7976931348623157E308" promptText="Mis pacientes · Hoy" styleClass="campo-combo" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_LEFT" spacing="24.0">
+         <children>
+            <VBox maxWidth="480.0" minWidth="480.0" prefWidth="480.0" spacing="20.0">
+               <children>
+                  <VBox spacing="16.0" styleClass="tarjeta">
+                     <children>
+                        <Label styleClass="titulo-17" text="Atendidos y programados" />
+                        <TableView fx:id="tblPacientesAsignados" fixedCellSize="58.0" minHeight="385.0" prefHeight="385.0" styleClass="tabla-vet">
+                           <columns>
+                              <TableColumn fx:id="colHoraPac" prefWidth="70.0" text="Hora" />
+                              <TableColumn fx:id="colPacientePropietario" prefWidth="160.0" text="Paciente / propietario" />
+                              <TableColumn fx:id="colCuidadoPac" prefWidth="110.0" text="Cuidado" />
+                              <TableColumn fx:id="colEstadoPac" prefWidth="96.0" text="Estado" />
+                           </columns>
+                           <placeholder>
+                              <Label styleClass="texto-12" text="No hay pacientes asignados para hoy." />
+                           </placeholder>
+                        </TableView>
+                        <Label styleClass="texto-11" text="Solo pacientes de tu jornada de estética." />
+                     </children>
+                  </VBox>
+                  <VBox spacing="16.0" styleClass="caja-crema">
+                     <children>
+                        <Label styleClass="titulo-17" text="Próxima atención" />
+                        <Label fx:id="lblSinProximaEst" styleClass="texto-12" text="No hay próximas atenciones." />
+                        <VBox fx:id="contenedorProximaEst" managed="false" spacing="16.0" visible="false">
+                           <children>
+                              <Label fx:id="lblProximaTitulo" styleClass="titulo-14" />
+                              <Label fx:id="lblProximaDetalle" styleClass="texto-12-oscuro" />
+                              <Label fx:id="lblProximaNota" maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-12" wrapText="true" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <HBox alignment="TOP_LEFT" spacing="10.0" styleClass="caja-aviso">
+                     <children>
+                        <StackPane maxHeight="18.0" maxWidth="18.0" minHeight="18.0" minWidth="18.0" prefHeight="18.0" prefWidth="18.0">
+                           <children>
+                              <SVGPath content="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0 M12 16v-4 M12 8h.01" scaleX="0.75" scaleY="0.75" styleClass="icon-stroke" />
+                           </children>
+                        </StackPane>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-12" text="Esta ficha contiene solo información de estética. Los diagnósticos y las notas médicas corresponden al equipo veterinario." wrapText="true" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="20.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox spacing="16.0" styleClass="tarjeta">
+                     <children>
+                        <Label fx:id="lblTituloFicha" styleClass="titulo-17" text="Ficha de estética" />
+                        <Label fx:id="lblSinFicha" styleClass="texto-12" text="Selecciona un paciente para ver su ficha." />
+                        <VBox fx:id="contenedorFicha" managed="false" spacing="16.0" visible="false">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="fila-mascota">
+                                 <children>
+                                    <StackPane maxHeight="42.0" maxWidth="42.0" minHeight="42.0" minWidth="42.0" prefHeight="42.0" prefWidth="42.0" styleClass="avatar-mascota">
+                                       <children>
+                                          <StackPane maxHeight="20.0" maxWidth="20.0" minHeight="20.0" minWidth="20.0" prefHeight="20.0" prefWidth="20.0">
+                                             <children>
+                                                <SVGPath content="M9 4a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M16 8a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M18 16a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z" scaleX="0.8333" scaleY="0.8333" styleClass="icon-stroke" />
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </StackPane>
+                                    <VBox spacing="3.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label fx:id="lblFichaMascota" styleClass="titulo-14" />
+                                          <Label fx:id="lblFichaDetalle" maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-11" wrapText="true" />
+                                       </children>
+                                    </VBox>
+                                    <StackPane maxHeight="16.0" maxWidth="16.0" minHeight="16.0" minWidth="16.0" prefHeight="16.0" prefWidth="16.0">
+                                       <children>
+                                          <SVGPath content="M9 18l6-6-6-6" scaleX="0.6667" scaleY="0.6667" styleClass="icon-stroke" />
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </HBox>
+                              <Label fx:id="lblFichaEstado" styleClass="chip" />
+                              <HBox fx:id="cajaAvisoFicha" alignment="TOP_LEFT" managed="false" spacing="10.0" styleClass="caja-aviso" visible="false">
+                                 <children>
+                                    <StackPane maxHeight="18.0" maxWidth="18.0" minHeight="18.0" minWidth="18.0" prefHeight="18.0" prefWidth="18.0">
+                                       <children>
+                                          <SVGPath content="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0 M12 16v-4 M12 8h.01" scaleX="0.75" scaleY="0.75" styleClass="icon-stroke" />
+                                       </children>
+                                    </StackPane>
+                                    <Label fx:id="lblAvisoFicha" maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-12" wrapText="true" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <Label styleClass="texto-12-negrita" text="Preferencias de corte" />
+                              <Label fx:id="lblPreferenciasCorte" maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-12-oscuro" wrapText="true" />
+                              <HBox spacing="20.0">
+                                 <children>
+                                    <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="6.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label fx:id="lblFichaPropietario" styleClass="texto-12-negrita" text="—" />
+                                          <Label fx:id="lblFichaTelefono" styleClass="texto-12" />
+                                          <Label fx:id="lblFichaCorreo" styleClass="texto-11" />
+                                       </children>
+                                    </VBox>
+                                    <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="6.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label fx:id="lblFichaFecha" styleClass="texto-12-negrita" text="—" />
+                                          <Label fx:id="lblFichaEntrega" styleClass="texto-12-oscuro" />
+                                          <Label fx:id="lblFichaEstilista" styleClass="texto-12" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <Button fx:id="btnContinuarServicio" maxWidth="-Infinity" mnemonicParsing="false" styleClass="boton-naranja" text="Continuar servicio existente" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox spacing="16.0" styleClass="tarjeta">
+                     <children>
+                        <Label styleClass="titulo-17" text="Historial de estética" />
+                        <VBox fx:id="contenedorHistorialEst" spacing="16.0">
+                           <children>
+                              <Label fx:id="lblSinHistorialEst" styleClass="texto-12" text="Aún no hay servicios de estética registrados." />
+                           </children>
+                        </VBox>
+                        <VBox fx:id="contenedorAvance" managed="false" spacing="16.0" visible="false">
+                           <children>
+                              <HBox spacing="16.0">
+                                 <children>
+                                    <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="8.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <CheckBox fx:id="chkAvanceBano" focusTraversable="false" mnemonicParsing="false" mouseTransparent="true" styleClass="check-login" text="Baño y secado" />
+                                          <CheckBox fx:id="chkAvanceOidos" focusTraversable="false" mnemonicParsing="false" mouseTransparent="true" styleClass="check-login" text="Limpieza de oídos" />
+                                          <CheckBox fx:id="chkAvanceCorte" focusTraversable="false" mnemonicParsing="false" mouseTransparent="true" styleClass="check-login" text="Corte de pelo" />
+                                       </children>
+                                    </VBox>
+                                    <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="8.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <CheckBox fx:id="chkAvanceRevision" focusTraversable="false" mnemonicParsing="false" mouseTransparent="true" styleClass="check-login" text="Revisión final" />
+                                          <CheckBox fx:id="chkAvanceUnas" focusTraversable="false" mnemonicParsing="false" mouseTransparent="true" styleClass="check-login" text="Uñas" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <Label maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-11" text="El servicio actual todavía no está finalizado. Su avance se conserva en Estética canina." wrapText="true" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox spacing="16.0" styleClass="caja-crema">
+                     <children>
+                        <Label styleClass="titulo-17" text="Cuidados para la entrega" />
+                        <Label fx:id="lblSinEntrega" styleClass="texto-12" text="Selecciona un paciente para ver los cuidados de entrega." />
+                        <VBox fx:id="contenedorEntrega" managed="false" spacing="16.0" visible="false">
+                           <children>
+                              <Label fx:id="lblRecomendacionEntrega" maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-12-oscuro" wrapText="true" />
+                              <Label fx:id="lblAvisoEntrega" maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-11" wrapText="true" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT">
+         <padding>
+            <Insets top="8.0" />
+         </padding>
+         <children>
+            <Label styleClass="texto-10" text="VETPLUS · Clínica veterinaria." />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label styleClass="texto-10" text="© 2026 VETPLUS. Todos los derechos reservados." />
+         </children>
+      </HBox>
+   </children>
+</VBox>

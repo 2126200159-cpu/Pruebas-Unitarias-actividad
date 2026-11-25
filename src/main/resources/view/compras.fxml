@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<VBox prefWidth="1056.0" spacing="24.0" styleClass="area-trabajo" stylesheets="@../css/vetplus.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="algo.vetplusapp.ctrl.ComprasController">
+   <padding>
+      <Insets bottom="32.0" left="32.0" right="32.0" top="32.0" />
+   </padding>
+   <children>
+      <HBox alignment="CENTER_LEFT">
+         <children>
+            <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label styleClass="titulo-28" text="Todo listo para cuidar" />
+                  <Label styleClass="texto-13" text="Existencias, proveedores y órdenes de compra en un mismo lugar." />
+               </children>
+            </VBox>
+            <Button fx:id="btnRegistrarInsumo" graphicTextGap="8.0" mnemonicParsing="false" styleClass="boton-naranja" text="Registrar insumo">
+               <graphic>
+                  <StackPane maxHeight="16.0" maxWidth="16.0" minHeight="16.0" minWidth="16.0" prefHeight="16.0" prefWidth="16.0">
+                     <children>
+                        <SVGPath content="M5 12h14 M12 5v14" scaleX="0.6667" scaleY="0.6667" styleClass="icon-stroke, icon-oscuro" />
+                     </children>
+                  </StackPane>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_LEFT" spacing="24.0">
+         <children>
+            <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="20.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox spacing="16.0" styleClass="tarjeta">
+                     <children>
+                        <Label styleClass="titulo-17" text="Inventario de insumos" />
+                        <VBox spacing="7.0">
+                           <children>
+                              <Label styleClass="campo-etiqueta" text="Buscar insumo" />
+                              <TextField fx:id="txtBuscarInsumo" minHeight="44.0" prefHeight="44.0" promptText="⌕  Nombre o categoría" styleClass="campo-texto" />
+                           </children>
+                        </VBox>
+                        <TableView fx:id="tblInsumos" fixedCellSize="58.0" minHeight="385.0" prefHeight="385.0" styleClass="tabla-vet">
+                           <columns>
+                              <TableColumn fx:id="colInsumo" prefWidth="150.0" text="Insumo" />
+                              <TableColumn fx:id="colExistencia" prefWidth="120.0" text="Existencia" />
+                              <TableColumn fx:id="colMinimo" prefWidth="120.0" text="Mínimo" />
+                              <TableColumn fx:id="colPrecioCompra" prefWidth="124.0" text="Precio compra" />
+                           </columns>
+                           <placeholder>
+                              <Label styleClass="texto-12" text="Aún no hay insumos registrados." />
+                           </placeholder>
+                        </TableView>
+                        <HBox fx:id="cajaAvisoBajoMinimo" alignment="TOP_LEFT" managed="false" spacing="10.0" styleClass="caja-aviso" visible="false">
+                           <children>
+                              <StackPane maxHeight="18.0" maxWidth="18.0" minHeight="18.0" minWidth="18.0" prefHeight="18.0" prefWidth="18.0">
+                                 <children>
+                                    <SVGPath content="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0 M12 8v4 M12 16h.01" scaleX="0.75" scaleY="0.75" styleClass="icon-stroke, icon-naranja" />
+                                 </children>
+                              </StackPane>
+                              <Label fx:id="lblAvisoBajoMinimo" maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-12" wrapText="true" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox spacing="16.0" styleClass="tarjeta">
+                     <children>
+                        <Label styleClass="titulo-17" text="Proveedores" />
+                        <HBox alignment="CENTER_LEFT" spacing="4.0">
+                           <children>
+                              <Label styleClass="texto-12" text="Contactos de compra ·" />
+                              <Hyperlink fx:id="lnkNuevoProveedor" styleClass="enlace" text="Nuevo proveedor +" />
+                           </children>
+                        </HBox>
+                        <TableView fx:id="tblProveedores" fixedCellSize="58.0" minHeight="153.0" prefHeight="153.0" styleClass="tabla-vet">
+                           <columns>
+                              <TableColumn fx:id="colEmpresaContacto" prefWidth="200.0" text="Empresa / contacto" />
+                              <TableColumn fx:id="colTelefonoProveedor" prefWidth="120.0" text="Teléfono" />
+                              <TableColumn fx:id="colCorreoProveedor" prefWidth="194.0" text="Correo" />
+                           </columns>
+                           <placeholder>
+                              <Label styleClass="texto-12" text="Aún no hay proveedores registrados." />
+                           </placeholder>
+                        </TableView>
+                        <HBox alignment="CENTER_LEFT" spacing="4.0">
+                           <children>
+                              <Hyperlink fx:id="lnkEditarProveedor" styleClass="enlace-11" text="Editar proveedor" />
+                              <Label styleClass="texto-11" text="·" />
+                              <Hyperlink fx:id="lnkHistorialCompras" styleClass="enlace-11" text="Ver historial de compras →" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox maxWidth="410.0" minWidth="410.0" prefWidth="410.0">
+               <children>
+                  <VBox spacing="16.0" styleClass="tarjeta">
+                     <children>
+                        <Label fx:id="lblTituloOrden" styleClass="titulo-17" text="Orden de compra" />
+                        <Label fx:id="lblCreadaPor" styleClass="texto-12" />
+                        <Label fx:id="lblEstadoOrden" styleClass="chip" text="Borrador" />
+                        <VBox spacing="7.0">
+                           <children>
+                              <Label styleClass="campo-etiqueta" text="Proveedor" />
+                              <ComboBox fx:id="cmbProveedor" maxWidth="1.7976931348623157E308" promptText="Selecciona un proveedor" styleClass="campo-combo" />
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <Label fx:id="lblTelProveedor" styleClass="texto-11" />
+                              <Label fx:id="lblCorreoProveedor" styleClass="texto-11" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="7.0">
+                           <children>
+                              <Label styleClass="campo-etiqueta" text="Fecha de entrega prevista" />
+                              <DatePicker fx:id="dtpEntrega" maxWidth="1.7976931348623157E308" promptText="Fecha de entrega" styleClass="campo-combo" />
+                           </children>
+                        </VBox>
+                        <TableView fx:id="tblRenglones" fixedCellSize="58.0" minHeight="211.0" prefHeight="211.0" styleClass="tabla-vet">
+                           <columns>
+                              <TableColumn fx:id="colProducto" prefWidth="120.0" text="Producto" />
+                              <TableColumn fx:id="colCantidad" prefWidth="70.0" text="Cant." />
+                              <TableColumn fx:id="colPrecioUnitario" prefWidth="80.0" text="P. unit." />
+                              <TableColumn fx:id="colImporteRenglon" prefWidth="96.0" text="Importe" />
+                           </columns>
+                           <placeholder>
+                              <Label styleClass="texto-12" text="Agrega productos a la orden." />
+                           </placeholder>
+                        </TableView>
+                        <Hyperlink fx:id="lnkAgregarRenglon" styleClass="enlace-11" text="+ Agregar renglón" />
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label styleClass="texto-14-negrita" text="Total MXN" />
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Label fx:id="lblTotalOrden" styleClass="total-26" text="\$0.00" />
+                           </children>
+                        </HBox>
+                        <VBox spacing="7.0">
+                           <children>
+                              <Label styleClass="campo-etiqueta" text="Notas para el proveedor" />
+                              <TextArea fx:id="txtNotasProveedor" minHeight="86.0" prefHeight="86.0" promptText="Indicaciones para el proveedor" styleClass="campo-area" wrapText="true" />
+                           </children>
+                        </VBox>
+                        <Button fx:id="btnEmitirOrden" graphicTextGap="8.0" maxWidth="-Infinity" mnemonicParsing="false" styleClass="boton-naranja" text="Emitir orden de compra">
+                           <graphic>
+                              <StackPane maxHeight="16.0" maxWidth="16.0" minHeight="16.0" minWidth="16.0" prefHeight="16.0" prefWidth="16.0">
+                                 <children>
+                                    <SVGPath content="M14.536 21.686a0.5 0.5 0 0 0 0.937-0.024l6.5-19a0.496 0.496 0 0 0-0.635-0.635l-19 6.5a0.5 0.5 0 0 0-0.024 0.937l7.93 3.18a2 2 0 0 1 1.112 1.11z M21.854 2.147L10.94 13.06" scaleX="0.6667" scaleY="0.6667" styleClass="icon-stroke, icon-oscuro" />
+                                 </children>
+                              </StackPane>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnGuardarBorrador" maxWidth="-Infinity" mnemonicParsing="false" styleClass="boton-secundario" text="Guardar borrador" />
+                        <Label fx:id="lblNotaExistencias" maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-10" text="Las existencias se actualizan al registrar la recepción, no al emitir la orden." wrapText="true" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT">
+         <padding>
+            <Insets top="8.0" />
+         </padding>
+         <children>
+            <Label styleClass="texto-10" text="VETPLUS · Clínica veterinaria." />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label styleClass="texto-10" text="© 2026 VETPLUS. Todos los derechos reservados." />
+         </children>
+      </HBox>
+   </children>
+</VBox>

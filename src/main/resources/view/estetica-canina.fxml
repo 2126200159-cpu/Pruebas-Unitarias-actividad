@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<VBox prefWidth="1056.0" spacing="24.0" styleClass="area-trabajo" stylesheets="@../css/vetplus.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="algo.vetplusapp.ctrl.EsteticaCaninaController">
+   <padding>
+      <Insets bottom="32.0" left="32.0" right="32.0" top="32.0" />
+   </padding>
+   <children>
+      <HBox alignment="CENTER_LEFT" spacing="20.0">
+         <children>
+            <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label styleClass="titulo-28" text="Pequeños cuidados, grandes cambios" />
+                  <Label fx:id="lblSubtituloEstetica" styleClass="texto-13" text="Tu jornada de baños y cortes" />
+               </children>
+            </VBox>
+            <Label fx:id="lblTurno" managed="false" styleClass="chip" visible="false" />
+         </children>
+      </HBox>
+      <HBox spacing="16.0">
+         <children>
+            <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="16.0" styleClass="tarjeta" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox alignment="TOP_LEFT">
+                     <children>
+                        <Label styleClass="texto-12" text="Programados hoy" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <StackPane maxHeight="20.0" maxWidth="20.0" minHeight="20.0" minWidth="20.0" prefHeight="20.0" prefWidth="20.0">
+                           <children>
+                              <SVGPath content="M3 6a3 3 0 1 0 6 0a3 3 0 1 0 -6 0 M3 18a3 3 0 1 0 6 0a3 3 0 1 0 -6 0 M20 4L8.12 15.88 M14.47 14.48L20 20 M8.12 8.12L12 12" scaleX="0.8333" scaleY="0.8333" styleClass="icon-stroke" />
+                           </children>
+                        </StackPane>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lblProgramadosHoy" styleClass="metrica-valor" text="0" />
+                  <Label fx:id="lblDetalleProgramados" styleClass="texto-11" text="Sin servicios programados" />
+               </children>
+            </VBox>
+            <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="16.0" styleClass="tarjeta" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox alignment="TOP_LEFT">
+                     <children>
+                        <Label styleClass="texto-12" text="En proceso" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <StackPane maxHeight="20.0" maxWidth="20.0" minHeight="20.0" minWidth="20.0" prefHeight="20.0" prefWidth="20.0">
+                           <children>
+                              <SVGPath content="M9 6L6.5 3.5a1.5 1.5 0 0 0-1-0.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5 M10 5L8 7 M2 12h20 M7 19l-1 2 M17 19l1 2" scaleX="0.8333" scaleY="0.8333" styleClass="icon-stroke" />
+                           </children>
+                        </StackPane>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lblEnProceso" styleClass="metrica-valor" text="0" />
+                  <Label fx:id="lblDetalleEnProceso" styleClass="texto-11" text="Sin servicio en proceso" />
+               </children>
+            </VBox>
+            <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="16.0" styleClass="tarjeta" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox alignment="TOP_LEFT">
+                     <children>
+                        <Label styleClass="texto-12" text="Finalizados" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <StackPane maxHeight="20.0" maxWidth="20.0" minHeight="20.0" minWidth="20.0" prefHeight="20.0" prefWidth="20.0">
+                           <children>
+                              <SVGPath content="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0 M9 12l2 2 4-4" scaleX="0.8333" scaleY="0.8333" styleClass="icon-stroke" />
+                           </children>
+                        </StackPane>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lblFinalizados" styleClass="metrica-valor" text="0" />
+                  <Label fx:id="lblDetalleFinalizados" styleClass="texto-11" text="Sin servicios finalizados" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_LEFT" spacing="24.0">
+         <children>
+            <VBox maxWidth="480.0" minWidth="480.0" prefWidth="480.0" spacing="20.0">
+               <children>
+                  <VBox spacing="16.0" styleClass="tarjeta">
+                     <children>
+                        <Label styleClass="titulo-17" text="Baños y cortes programados" />
+                        <Label styleClass="texto-12" text="Agenda asignada a tu sesión" />
+                        <TableView fx:id="tblProgramados" fixedCellSize="58.0" minHeight="327.0" prefHeight="327.0" styleClass="tabla-vet">
+                           <columns>
+                              <TableColumn fx:id="colHora" prefWidth="70.0" text="Hora" />
+                              <TableColumn fx:id="colPaciente" prefWidth="150.0" text="Paciente" />
+                              <TableColumn fx:id="colCuidado" prefWidth="120.0" text="Cuidado" />
+                              <TableColumn fx:id="colEstado" prefWidth="96.0" text="Estado" />
+                           </columns>
+                           <placeholder>
+                              <Label styleClass="texto-12" text="No hay servicios programados para hoy." />
+                           </placeholder>
+                        </TableView>
+                     </children>
+                  </VBox>
+                  <VBox spacing="16.0" styleClass="caja-crema">
+                     <children>
+                        <Label styleClass="titulo-17" text="Entrega y contacto" />
+                        <Label fx:id="lblPropietarioEntrega" styleClass="titulo-14" text="—" />
+                        <Label fx:id="lblContactoEntrega" styleClass="texto-12" text="Tel. —" />
+                        <VBox>
+                           <children>
+                              <Label fx:id="lblEntregaEstimada" styleClass="texto-12-oscuro" text="Entrega estimada: —" />
+                              <Label fx:id="lblNotaEntrega" maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-12-oscuro" wrapText="true" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox spacing="16.0" styleClass="tarjeta">
+                     <children>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label styleClass="titulo-18" text="Servicio en curso" />
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Label fx:id="lblEstadoServicio" managed="false" styleClass="chip" visible="false" />
+                           </children>
+                        </HBox>
+                        <Label fx:id="lblSinServicio" styleClass="texto-12" text="No hay un servicio en curso." />
+                        <VBox fx:id="contenedorServicioCurso" managed="false" spacing="16.0" visible="false">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="fila-mascota">
+                                 <children>
+                                    <StackPane maxHeight="42.0" maxWidth="42.0" minHeight="42.0" minWidth="42.0" prefHeight="42.0" prefWidth="42.0" styleClass="avatar-mascota">
+                                       <children>
+                                          <StackPane maxHeight="20.0" maxWidth="20.0" minHeight="20.0" minWidth="20.0" prefHeight="20.0" prefWidth="20.0">
+                                             <children>
+                                                <SVGPath content="M9 4a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M16 8a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M18 16a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z" scaleX="0.8333" scaleY="0.8333" styleClass="icon-stroke" />
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </StackPane>
+                                    <VBox spacing="3.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label fx:id="lblServicioMascota" styleClass="titulo-14" />
+                                          <Label fx:id="lblServicioDetalle" styleClass="texto-11" />
+                                       </children>
+                                    </VBox>
+                                    <StackPane maxHeight="16.0" maxWidth="16.0" minHeight="16.0" minWidth="16.0" prefHeight="16.0" prefWidth="16.0">
+                                       <children>
+                                          <SVGPath content="M9 18l6-6-6-6" scaleX="0.6667" scaleY="0.6667" styleClass="icon-stroke" />
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="cajaAvisoMascota" alignment="TOP_LEFT" managed="false" spacing="10.0" styleClass="caja-aviso" visible="false">
+                                 <children>
+                                    <StackPane maxHeight="18.0" maxWidth="18.0" minHeight="18.0" minWidth="18.0" prefHeight="18.0" prefWidth="18.0">
+                                       <children>
+                                          <SVGPath content="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0 M12 8v4 M12 16h.01" scaleX="0.75" scaleY="0.75" styleClass="icon-stroke, icon-naranja" />
+                                       </children>
+                                    </StackPane>
+                                    <Label fx:id="lblAvisoMascota" maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-12" wrapText="true" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="16.0">
+                                 <children>
+                                    <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="7.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label styleClass="campo-etiqueta" text="Servicio" />
+                                          <TextField fx:id="txtServicioEstetica" editable="false" minHeight="44.0" prefHeight="44.0" promptText="Servicio" styleClass="campo-texto" />
+                                       </children>
+                                    </VBox>
+                                    <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="7.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label styleClass="campo-etiqueta" text="Tarifa" />
+                                          <TextField fx:id="txtTarifaEstetica" editable="false" minHeight="44.0" prefHeight="44.0" promptText="Tarifa" styleClass="campo-texto" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <VBox spacing="7.0">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="Preferencias del propietario" />
+                                    <TextArea fx:id="txtPreferencias" minHeight="86.0" prefHeight="86.0" promptText="Preferencias de corte y cuidado" styleClass="campo-area" wrapText="true" />
+                                 </children>
+                              </VBox>
+                              <Label styleClass="texto-12-negrita" text="Lista de cuidado" />
+                              <HBox spacing="16.0">
+                                 <children>
+                                    <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="4.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <CheckBox fx:id="chkBanoSecado" mnemonicParsing="false" styleClass="check-login" text="Baño y secado" />
+                                          <CheckBox fx:id="chkOidos" mnemonicParsing="false" styleClass="check-login" text="Limpieza de oídos" />
+                                       </children>
+                                    </VBox>
+                                    <VBox maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="4.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <CheckBox fx:id="chkCorte" mnemonicParsing="false" styleClass="check-login" text="Corte de pelo" />
+                                          <CheckBox fx:id="chkRevisionUnas" mnemonicParsing="false" styleClass="check-login" text="Revisión final y uñas" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <VBox spacing="7.0">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="Observaciones para el historial" />
+                                    <TextArea fx:id="txtObservaciones" minHeight="64.0" prefHeight="64.0" promptText="Observaciones del servicio" styleClass="campo-area" wrapText="true" />
+                                 </children>
+                              </VBox>
+                              <HBox spacing="12.0">
+                                 <children>
+                                    <Button fx:id="btnGuardarAvance" mnemonicParsing="false" styleClass="boton-secundario" text="Guardar avance" />
+                                    <Button fx:id="btnFinalizarEstetica" graphicTextGap="8.0" mnemonicParsing="false" styleClass="boton-naranja" text="Finalizar estética">
+                                       <graphic>
+                                          <StackPane maxHeight="16.0" maxWidth="16.0" minHeight="16.0" minWidth="16.0" prefHeight="16.0" prefWidth="16.0">
+                                             <children>
+                                                <SVGPath content="M20 6L9 17l-5-5" scaleX="0.6667" scaleY="0.6667" styleClass="icon-stroke, icon-oscuro" />
+                                             </children>
+                                          </StackPane>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <Label maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-10" text="Al finalizar se registra el servicio y se notifica a recepción para la entrega." wrapText="true" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT">
+         <padding>
+            <Insets top="8.0" />
+         </padding>
+         <children>
+            <Label styleClass="texto-10" text="VETPLUS · Clínica veterinaria." />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label styleClass="texto-10" text="© 2026 VETPLUS. Todos los derechos reservados." />
+         </children>
+      </HBox>
+   </children>
+</VBox>

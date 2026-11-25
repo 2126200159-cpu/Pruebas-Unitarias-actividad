@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+
+<HBox prefHeight="860.0" prefWidth="1280.0" styleClass="login-root" stylesheets="@../css/vetplus.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox minWidth="640.0" maxWidth="640.0" prefWidth="640.0" spacing="24.0" styleClass="login-left">
+         <padding>
+            <Insets bottom="48.0" left="48.0" right="48.0" top="48.0" />
+         </padding>
+         <children>
+            <ImageView fx:id="imgLogo" fitHeight="76.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/vetplus-logo.png" />
+               </image>
+            </ImageView>
+            <VBox spacing="12.0">
+               <children>
+                  <Label styleClass="login-headline" text="Una clínica conectada.&#10;Un cuidado más cercano." wrapText="true" />
+                  <Label styleClass="texto-16" text="Personas, pacientes y cuidados, en el mismo lugar." wrapText="true" />
+               </children>
+            </VBox>
+            <ImageView fx:id="imgCuidado" fitHeight="383.0" fitWidth="544.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/cuidado-veterinario.jpg" />
+               </image>
+               <clip>
+                  <Rectangle arcHeight="40.0" arcWidth="40.0" height="383.0" width="544.0" />
+               </clip>
+            </ImageView>
+            <HBox alignment="CENTER_LEFT" spacing="12.0">
+               <children>
+                  <StackPane maxHeight="24.0" maxWidth="24.0" minHeight="24.0" minWidth="24.0" prefHeight="24.0" prefWidth="24.0">
+                     <children>
+                        <Group>
+                           <children>
+                              <SVGPath content="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" styleClass="icon-stroke" />
+                           </children>
+                        </Group>
+                     </children>
+                  </StackPane>
+                  <VBox spacing="4.0">
+                     <children>
+                        <Label styleClass="texto-14-negrita" text="Clínica VETPLUS" />
+                        <Label styleClass="texto-12" text="Atención con cariño, información siempre a mano." />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Label styleClass="texto-11" text="Ciudad de México · Consultas, prevención y bienestar animal" />
+         </children>
+      </VBox>
+      <VBox alignment="CENTER_LEFT" spacing="24.0" HBox.hgrow="ALWAYS">
+         <padding>
+            <Insets bottom="40.0" left="90.0" right="90.0" top="40.0" />
+         </padding>
+         <children>
+            <VBox spacing="8.0">
+               <children>
+                  <Label styleClass="login-eyebrow" text="BIENVENIDO A VETPLUS" />
+                  <Label styleClass="login-title" text="Qué gusto verte de nuevo" />
+                  <Label styleClass="texto-14" text="Ingresa a tu espacio de cuidado." />
+               </children>
+            </VBox>
+            <VBox spacing="7.0">
+               <children>
+                  <Label styleClass="campo-etiqueta" text="Correo electrónico o usuario" />
+                  <TextField fx:id="txtUsuario" promptText="Escribe tu correo o usuario" styleClass="campo-texto" />
+               </children>
+            </VBox>
+            <VBox spacing="7.0">
+               <children>
+                  <Label styleClass="campo-etiqueta" text="Contraseña" />
+                  <HBox alignment="CENTER_LEFT" styleClass="campo-contrasena">
+                     <children>
+                        <PasswordField fx:id="txtContrasena" promptText="Escribe tu contraseña" styleClass="campo-contrasena-interno" HBox.hgrow="ALWAYS" />
+                        <Button fx:id="btnMostrarContrasena" focusTraversable="false" mnemonicParsing="false" styleClass="boton-icono">
+                           <graphic>
+                              <StackPane maxHeight="20.0" maxWidth="20.0" minHeight="20.0" minWidth="20.0" prefHeight="20.0" prefWidth="20.0">
+                                 <children>
+                                    <Group scaleX="0.8333" scaleY="0.8333">
+                                       <children>
+                                          <SVGPath content="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" styleClass="icon-stroke" />
+                                          <Circle centerX="12.0" centerY="12.0" radius="3.0" styleClass="icon-stroke" />
+                                       </children>
+                                    </Group>
+                                 </children>
+                              </StackPane>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <CheckBox fx:id="chkRecordarme" mnemonicParsing="false" styleClass="check-login" text="Recordarme" />
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Hyperlink fx:id="lnkOlvideContrasena" styleClass="enlace" text="Olvidé mi contraseña" />
+               </children>
+            </HBox>
+            <Button fx:id="btnIniciarSesion" defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="boton-primario" text="Iniciar sesión →" />
+            <HBox alignment="TOP_LEFT" spacing="10.0" styleClass="caja-aviso">
+               <children>
+                  <StackPane maxHeight="18.0" maxWidth="18.0" minHeight="18.0" minWidth="18.0" prefHeight="18.0" prefWidth="18.0">
+                     <children>
+                        <Group scaleX="0.75" scaleY="0.75">
+                           <children>
+                              <Circle centerX="12.0" centerY="12.0" radius="10.0" styleClass="icon-stroke" />
+                              <SVGPath content="M12 16v-4" styleClass="icon-stroke" />
+                              <SVGPath content="M12 8h.01" styleClass="icon-stroke" />
+                           </children>
+                        </Group>
+                     </children>
+                  </StackPane>
+                  <Label maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-12" text="Tu cuenta determina tu acceso: administración, médico o estilista. Los accesos del equipo los asigna la clínica." wrapText="true" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <Label styleClass="texto-11" text="Privacidad y protección de datos" />
+         </children>
+      </VBox>
+   </children>
+</HBox>

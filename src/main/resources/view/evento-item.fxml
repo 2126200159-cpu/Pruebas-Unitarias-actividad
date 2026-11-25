@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<HBox alignment="TOP_LEFT" prefWidth="560.0" spacing="16.0" styleClass="evento-clinico, plantilla" stylesheets="@../css/vetplus.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Circle radius="4.0" styleClass="marcador">
+         <HBox.margin>
+            <Insets top="3.0" />
+         </HBox.margin>
+      </Circle>
+      <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="lblEventoFecha" styleClass="evento-fecha" />
+            <Label fx:id="lblEventoTitulo" styleClass="titulo-14" />
+            <Label fx:id="lblEventoProfesional" styleClass="texto-11" />
+            <Label fx:id="lblEventoNota" maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="texto-12-oscuro" wrapText="true" />
+         </children>
+      </VBox>
+   </children>
+</HBox>
